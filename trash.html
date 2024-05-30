@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Keep Replica</title>
+    <style>
+        .wrapper {
+            display: grid;
+            grid-template-areas:
+                "header header header header header"
+                "sidebar content content content content"
+                "sidebar content content content content"
+                "sidebar content content content content"
+                "footer footer footer footer footer";
+            grid-gap: 10px;
+            grid-template-columns: 0fr 1fr;
+        }
+
+        header {
+            grid-area: header;
+            background-color: #ffffff;
+            padding: 1px;
+        }
+
+        sidebar {
+            grid-area: sidebar;
+            background-color: #f0f0f0;
+            padding: 15px;
+        }
+
+        newnote {
+        	grid-area: newnote;
+            background-color: #fff;
+            padding: 20px;
+			text-align: center;
+			justify-content: center;
+        }
+
+        content {
+            grid-area: content;
+            background-color: #fff;
+            padding: 60px;
+        }
+
+       
+    </style>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+        <header>
+	<div class="wrapper2">
+		<div class="topnav">
+			
+				<img src="img/menu icon.png" alt="menu" width="60px" height="60px" id="menu-btn">
+				<a href="index.html"><img src="img/icn.png" alt="icon" width="55px" height="60px"></a>
+				<a href="index.html"><img src="img/keep.png" alt="keep" width="60px" height="60px"></a>
+			
+			<div class="search">
+				<img src="img/search.png" alt="" width="25px" height="25px">
+				<input type="text" placeholder="Search" id="searchInput">
+			</div>
+		</div>
+			<div class="right">
+				<div>
+					<a href="index.html"><img src="img/refresh.png" alt="refresh" width="60px" height="60px"></a>
+					<a href="index.html"><img src="img/chngtolistview.png" alt="listview" width="60px" height="60px"></a>
+					<a href="index.html"><img src="img/settings.png" alt="settings" width="60px" height="60px"></a>
+				</div>
+			</div>
+	</div>
+        </header>
+        <div class="sidebar">
+        	
+				<div class="sidebar_div"><a href="index.html><img src="img/bulb.png" alt="notes" width="20px" height="20px" class="menu-img"><span>Notes</span></a></div>
+				
+				<div class="sidebar_div"><a href="reminders.html><img src="img/bell.png" alt="reminders" width="20px" height="20px" class="menu-img"><span>Reminders</span></a></div>
+				
+				
+				<div class="sidebar_div"><a href="labels.html"><img src="img/pen.png" alt="editlabels" width="20px" height="20px" class="menu-img"><span>Edit Labels</span></a></div>
+				
+				
+				<div class="sidebar_div"><a href="archive.html><img src="img/archive.png" alt="archive" width="20px" height="20px" class="menu-img"><span>Archive</span></a></div>
+				
+				<div class="sidebar_div"><a href="trash.html><img src="img/trash.png" alt="trash" width="20px" height="20px" class="menu-img"><span>Trash</span></a></div>
+				
+			
+        </div>
+        <div class="content">
+        	<table>
+                <div class="newNote">
+                    <input type="text" id="noteInput" placeholder="Take a note..." style="width: 189%; height:auto;">
+                </div>
+                <div id="notesContainer"></div>
+		    </table>
+        </div>
+    </div>
+	<script src="script.js"></script>
+</body>
+
+</html>
