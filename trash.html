@@ -106,7 +106,67 @@
 		    </table>
         </div>
     </div>
-	<script src="script.js"></script>
 </body>
+
+    <script>
+        const menu = document.getElementById('menu-btn');
+        const sidebar = document.getElementsByClassName('sidebar_div')
+const sidebar_label = document.getElementsByTagName("span");
+
+        let notesArr = [];
+        let currentRow = 0;
+
+        if (localStorage.getItem("trashNotes")) {
+            let arr = JSON.parse(localStorage.getItem("trashNotes"));
+            notesArr = arr
+
+            for (let i=0; i < arr.length; i++) {
+                const noteBox = document.createElement('div');
+                noteBox.classList.add('note-box');
+                const noteContent = document.createElement('p');
+                noteContent.textContent = arr[i];
+                noteBox.appendChild(noteContent);
+
+                let x = JSON.parse(localStorage.getItem("currentRow"))
+                if(!currentRow || x.childElementCount === 2){
+                    var currentRow3 = document.createElement('div');
+                    currentRow3.classList.add('note-row');
+                    notesContainer.appendChild(currentRow3);
+                }
+                if (!currentRow) {
+                    currentRow3.appendChild(noteBox);
+                }
+                localStorage.setItem("currentRow", x + 1);
+            }
+        }
+
+        let x = [];
+menu.addEventListener('click', function(){
+    for (let i = 0; i < sidebar.length; i++) {
+        if (sidebar[i].style.width == '30px') {
+            sidebar[i].style.width = '250px'
+        }else {
+            sidebar[i].style.width = '30px'
+        };
+    }
+
+    if (x.length == 0) { 
+        for (let i = 0; i < sidebar_label.length; i++) {
+            x[i] = sidebar_label[i].innerHTML
+        }
+    }
+    for (let i = 0; i < sidebar_label.length; i++) {
+        if (sidebar_label[i].innerHTML == '') {
+            sidebar_label[i].innerHTML = x[i]
+        }else {
+            sidebar_label[i].innerHTML = ''
+        }
+    }
+
+});
+
+
+        
+    </script>
 
 </html>

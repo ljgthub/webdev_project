@@ -103,7 +103,40 @@
 		    </table>
         </div>
     </div>
-	<script src="script.js"></script>
-</body>
 
+</body>
+    <script>
+        const noteInput = document.getElementById('noteInput');
+        const notesContainer = document.getElementById('notesContainer');
+        const menu = document.getElementById('menu-btn');
+        const sidebar = document.getElementsByClassName('sidebar_div')
+        const sidebar_label = document.getElementsByTagName("span");
+
+        let currentRow, rowCount = 1;
+        noteInput.addEventListener('keypress', function(e){
+            if(e.key === 'Enter'){
+                const noteText = noteInput.value.trim();
+                if(noteText !== ''){
+                    const noteBox = document.createElement('div');
+                    noteBox.classList.add('note-box');
+                    const noteContent = document.createElement('p');
+                    noteContent.textContent = noteText;            
+                    noteBox.appendChild(noteContent);
+
+                    if(noteText.length >= 30){
+                        noteBox.classList.add('small');
+                    }
+
+                    if(!currentRow || currentRow.childElementCount === 2){
+                        currentRow = document.createElement('div');
+                        currentRow.classList.add('note-row');
+                        notesContainer.appendChild(currentRow);
+                        rowCount++;
+                    }
+                    currentRow.appendChild(noteBox);
+                    noteInput.value = '';
+                }
+            }
+        });
+    </script>
 </html>
