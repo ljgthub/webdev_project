@@ -19,8 +19,7 @@ if (localStorage.getItem("noteTexts")) {
         const noteContent = document.createElement('p');
         noteContent.textContent = arr[i];
         noteBox.appendChild(noteContent);
-        noteBox.insertAdjacentHTML('beforeend','<span id="pencil"><img src="img/pen.png" alt="archive" width="15px" height="15px" class="note-btn"></span>');
-        noteBox.insertAdjacentHTML('beforeend','<span class="archiveBtn"><img src="img/archive.png" alt="archive" width="15px" height="15px" class="note-btn"></span>');
+        noteBox.insertAdjacentHTML('beforeend','<span class="archiveBtn" id="pencil"><img src="img/archive.png" alt="archive" width="15px" height="15px" class="note-btn"></span>');
         noteBox.insertAdjacentHTML('beforeend','<span class="trashBtn"><img src="img/trash.png" alt="archive" width="15px" height="15px" class="note-btn"></span>');
 
         let x = JSON.parse(localStorage.getItem("currentRow"))
@@ -48,8 +47,7 @@ noteInput.addEventListener('keypress', function(e){
             notesArr.push(noteText)
             localStorage.setItem("noteTexts", JSON.stringify(notesArr));    
             noteBox.appendChild(noteContent);
-            noteBox.insertAdjacentHTML('beforeend','<span id="pencil"><img src="img/pen.png" alt="archive" width="15px" height="15px" class="note-btn"></span>');
-            noteBox.insertAdjacentHTML('beforeend','<span class="archiveBtn"><img src="img/archive.png" alt="archive" width="15px" height="15px" class="note-btn"></span>');
+            noteBox.insertAdjacentHTML('beforeend','<span class="archiveBtn" id="pencil"><img src="img/archive.png" alt="archive" width="15px" height="15px" class="note-btn"></span>');
             noteBox.insertAdjacentHTML('beforeend','<span class="trashBtn"><img src="img/trash.png" alt="archive" width="15px" height="15px" class="note-btn"></span>');
 
 
